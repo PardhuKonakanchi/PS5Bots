@@ -60,7 +60,7 @@ print("Waiting to get past queue and add to cart...")
 while not add_to_cart_ready:
     try:
         add_to_cart = browser.find_element_by_css_selector("button[class*='add-to-cart-button']")
-        if add_to_cart.isEnabled():
+        if add_to_cart.is_enabled():
             add_to_cart.click()
             add_to_cart_ready = True
     except:
