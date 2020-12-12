@@ -5,14 +5,13 @@ Note that this solution uses an open WebBrowser which is slightly slower than a 
 ## Instructions
 
 1. Download repo using green button in top right as zip
-2. Download ChromeDriver here according to your OS and chrome version (you can check in Chrome setting > About Chrome)
-3. Unzip the ChromeDriver download to the folder containing this repository's files
+2. Make sure your chrome updated to the latest version (V 87.X.X.X)
 2. Open up command prompt/terminal and navigate to downloaded folder
 3. On Command prompt:
 
 * Run `pip install -r installer.txt` or `pip3 install -r installer.txt` If those don't work, you may need to follow the instructions right below to download python
 * run either `python3 best_buy_ps5_bot.py` or `python best_buy_ps5_bot.py` (or whatever file you want to run)
-* If the above command doesn't work, you may need to install python here: https://www.python.org/downloads/. **NOTE** : Make sure as you're downloading to check the box that says "Add Python X.X to PATH"
+* If pip or python doesn't work, you may need to install python here: https://www.python.org/downloads/. If you already have python, uninstall and redownload **NOTE** : Make sure as you're downloading to check the box that says "Add Python X.X to PATH"
 
 You will be prompted for either disc or digital (and for best buy the 3080 as well)
 
