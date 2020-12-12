@@ -8,8 +8,8 @@ Note that this solution uses an open WebBrowser which is slightly slower than a 
 2. Open up command prompt/terminal and navigate to downloaded folder
 3. On Command prompt:
 
-* Run **pip install -r installer.txt** or **pip3 install -r installer.txt**
-* run either **python3 best_buy_ps5_bot.py** or **python best_by_ps5_bot.py** (or whatever file you want to run)
+* Run `pip install -r installer.txt` or `pip3 install -r installer.txt` If those don't work, try `py -m pip install -r installer.txt`. **NOTE** You should only ever have to do this once on any computer, even if you delete this folder
+* run either `python3 best_buy_ps5_bot.py` or `python best_buy_ps5_bot.py` (or whatever file you want to run)
 * If the above command doesn't work, you may need to install python here: https://www.python.org/downloads/
 
 You will be prompted for either disc or digital (and for best buy the 3080 as well)
