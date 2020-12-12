@@ -1,6 +1,5 @@
 import time
 import urllib
-import requests
 import selenium
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
@@ -11,20 +10,6 @@ import sys
 import subprocess
 
 import os
-
-## STEP 0 ##
-
-# Run 'pip install -r installer.txt' or 'pip3 install -r installer.txt'
-
-## STEP 1 ##
-
-# Download the latest stable chromedriver from this site: 
-# https://chromedriver.chromium.org
-# input the file path below. usually just a username on mac. Otherwise change appropriately on windows
-
-## STEP 2 ##
-
-# run either 'python3 best_buy_ps5_bot.py' or 'python best_by_ps5_bot.py'
 
 version = input("Which version are you looking for? (disc/digital/3080) or enter your own url: ").strip().lower()
 
