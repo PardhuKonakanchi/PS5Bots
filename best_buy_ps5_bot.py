@@ -33,14 +33,13 @@ print("Checking for stock...")
 refresh_count = 0
 while not found_stock:
     print("Number of tries: ", refresh_count)
-    try:
-        add_to_cart = browser.find_element_by_css_selector("button[class*='add-to-cart-button']")
-        print(add_to_cart.is_enabled())
-        if add_to_cart.is_enabled():
-            print("Found it!")
-            add_to_cart.click()
-            found_stock = True
-    except:
+    add_to_cart = browser.find_element_by_css_selector("button[class*='add-to-cart-button']")
+    print(add_to_cart.is_enabled())
+    if add_to_cart.is_enabled():
+        print("Found it!")
+        add_to_cart.click()
+        found_stock = True
+    else:
         time.sleep(refresh_period)
         refresh_count += 1
         browser.refresh()
@@ -58,12 +57,11 @@ add_to_cart_ready = False
 browser.implicitly_wait(1)
 print("Waiting to get past queue and add to cart...")
 while not add_to_cart_ready:
-    try:
-        add_to_cart = browser.find_element_by_css_selector("button[class*='add-to-cart-button']")
-        if add_to_cart.is_enabled():
-            add_to_cart.click()
-            add_to_cart_ready = True
-    except:
+    add_to_cart = browser.find_element_by_css_selector("button[class*='add-to-cart-button']")
+    if add_to_cart.is_enabled():
+        add_to_cart.click()
+        add_to_cart_ready = True
+    else:
         time.sleep(1)
 
 print("BEST BUY IN CART!!")
