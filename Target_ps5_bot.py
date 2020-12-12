@@ -9,6 +9,9 @@ import os
 import sys
 import subprocess
 import webbrowser
+from utils import *
+
+
 
 version = input("Which version are you looking for? (disc/digital): ").strip().lower()
 
@@ -19,14 +22,14 @@ elif version == "digital":
 else:
     url = 'https://www.target.com/p/forum-novelties-men-s-clown-on-the-town-costume/-/A-80774834?preselect=80787639#lnk=sametab'
 
-options = webdriver.ChromeOptions()
-browser = webdriver.Chrome('./chromedriver', options=options)
-browser.get(url);
+
+browser = open_chrome_driver(url)
+
+refresh_period = ask_refresh_period()
+refresh_count = 0
 found_stock = False
 
-input("Press Enter once you are logged in...")
-refresh_period = int(input("Seconds between refresh (would recommend at least 5):"))
-refresh_count = 0
+print("Checking for stock...")
 while not found_stock:
     print("Number of tries: ", refresh_count)
     try:
@@ -43,11 +46,9 @@ while not found_stock:
 print("TARGET IN CART!!")
 
 url = 'https://www.target.com/co-review'
+
+found_stock_redirect(browser, url)
 browser.get(url)
-if sys.platform == 'darwin':    # in case of OS X
-    subprocess.Popen(['open', url])
-else:
-    webbrowser.open_new_tab(url)
 
 for _ in range(5):
     os.system('say "target ps5 in cart"')

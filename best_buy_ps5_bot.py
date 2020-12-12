@@ -8,12 +8,13 @@ from selenium.webdriver.support import expected_conditions as EC
 import webbrowser
 import sys
 import subprocess
+from utils import *
 
 import os
 
 version = input("Which version are you looking for? (disc/digital/3080) or enter your own url: ").strip().lower()
 
-if version == "disk":
+if version == "disc":
     url = 'https://www.bestbuy.com/site/sony-playstation-5-console/6426149.p?skuId=6426149'
 elif version == "digital":
     url = 'https://www.bestbuy.com/site/sony-playstation-5-digital-edition-console/6430161.p?skuId=6430161'
@@ -23,20 +24,20 @@ else:
     url = version
 
 
-options = webdriver.ChromeOptions()
-browser = webdriver.Chrome('./chromedriver', options=options)
-browser.get(url)
+browser = open_chrome_driver(url)
+refresh_period = ask_refresh_period()
 found_stock = False
 
-input("Press enter when logged in...")
 print("Checking for stock...")
-refresh_period = int(input("Seconds between refresh (would recommend at least 5 for your computer's sake):"))
+
 refresh_count = 0
 while not found_stock:
     print("Number of tries: ", refresh_count)
     try:
-        add_to_cart = browser.find_element_by_css_selector("button[class*='add-to-cart-button']").click()
-        if add_to_cart.isEnabled():
+        add_to_cart = browser.find_element_by_css_selector("button[class*='add-to-cart-button']")
+        print(add_to_cart.is_enabled())
+        if add_to_cart.is_enabled():
+            print("Found it!")
             add_to_cart.click()
             found_stock = True
     except:
@@ -47,13 +48,10 @@ while not found_stock:
 
 print("BEST BUY IN STOCK!!")
 
-if sys.platform == 'darwin':    # in case of OS X
-    subprocess.Popen(['open', url])
-else:
-    webbrowser.open_new_tab(url)
+found_stock_redirect(browser, url)
 
 for _ in range(5):
-    os.system('say "best buy ps5 in stock"')
+    os.system('say "best buy in stock"')
 
 add_to_cart_ready = False
 
@@ -61,14 +59,17 @@ browser.implicitly_wait(1)
 print("Waiting to get past queue and add to cart...")
 while not add_to_cart_ready:
     try:
-        add_to_cart = browser.find_element_by_css_selector("button[class*='add-to-cart-button']").click()
+        add_to_cart = browser.find_element_by_css_selector("button[class*='add-to-cart-button']")
         if add_to_cart.isEnabled():
             add_to_cart.click()
-            found_stock = True
+            add_to_cart_ready = True
     except:
         time.sleep(1)
 
 print("BEST BUY IN CART!!")
 
+found_stock_redirect('https://www.bestbuy.com/cart')
+browser.get(url)
+
 for _ in range(5):
-    os.system('say "best buy ps5 in cart"')
+    os.system('say "best buy in cart"')
