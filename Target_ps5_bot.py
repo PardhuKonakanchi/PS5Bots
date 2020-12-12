@@ -1,6 +1,5 @@
 import time
 import urllib
-import requests
 import selenium
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
@@ -10,23 +9,6 @@ import os
 import sys
 import subprocess
 import webbrowser
-
-## STEP 0 ##
-
-# Run 'pip install -r installer.txt' or 'pip3 install -r installer.txt'
-
-## STEP 1 ##
-
-# Download the latest stable chromedriver from this site: 
-# https://chromedriver.chromium.org
-# input the file path below. usually just a username on mac. Otherwise change appropriately on windows
-
-## STEP 2 ##
-
-# run either python3 Target_ps5_bot.py or python Target_ps5_bot.py
-
-## For target, we will open a browser and let you login before checking stock.
-## You can leave it running and it will auto add to cart, and open up checkout page in default browser
 
 version = input("Which version are you looking for? (disc/digital): ").strip().lower()
 
