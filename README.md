@@ -10,6 +10,7 @@ On Command prompt:
 
 1. Run **pip install -r installer.txt** or **pip3 install -r installer.txt**
 2. run either **python3 best_buy_ps5_bot.py** or **python best_by_ps5_bot.py** (or whatever file you want to run)
+2a. If the above command doesn't work, you may need to install python here: https://www.python.org/downloads/
 
 You will be prompted for either disc or digital (and for best buy the 3080 as well)
 
