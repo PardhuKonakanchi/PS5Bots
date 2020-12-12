@@ -4,13 +4,13 @@ Note that this solution uses an open WebBrowser which is slightly slower than a 
 
 ## Instructions
 
-Download repo using green button in top right as zip
-Open up command prompt/terminal and navigate to downloaded folder
-On Command prompt:
+1. Download repo using green button in top right as zip
+2. Open up command prompt/terminal and navigate to downloaded folder
+3. On Command prompt:
 
-1. Run **pip install -r installer.txt** or **pip3 install -r installer.txt**
-2. run either **python3 best_buy_ps5_bot.py** or **python best_by_ps5_bot.py** (or whatever file you want to run)
-2a. If the above command doesn't work, you may need to install python here: https://www.python.org/downloads/
+* Run **pip install -r installer.txt** or **pip3 install -r installer.txt**
+* run either **python3 best_buy_ps5_bot.py** or **python best_by_ps5_bot.py** (or whatever file you want to run)
+* If the above command doesn't work, you may need to install python here: https://www.python.org/downloads/
 
 You will be prompted for either disc or digital (and for best buy the 3080 as well)
 
