@@ -31,10 +31,14 @@ found_stock = False
 print("Checking for stock...")
 
 refresh_count = 0
+browser.implicitly_wait(refresh_period)
 while not found_stock:
     print("Number of tries: ", refresh_count)
-    add_to_cart = browser.find_element_by_css_selector("button[class*='add-to-cart-button']")
-    print(add_to_cart.is_enabled())
+    try:
+        add_to_cart = browser.find_element_by_css_selector("button[class*='add-to-cart-button']")
+    except:
+        refresh_count += 1
+        browser.refresh()
     if add_to_cart.is_enabled():
         print("Found it!")
         add_to_cart.click()
