@@ -25,6 +25,10 @@ else:
 
 browser = open_chrome_driver(url)
 
+input("Press enter to continue once logged in...")
+
+hear_alarm = input("Do you want to hear alarm when in stock and in cart? (Y/N): ").strip().lower()
+
 refresh_period = ask_refresh_period()
 refresh_count = 0
 found_stock = False
@@ -50,7 +54,8 @@ url = 'https://www.target.com/co-review'
 found_stock_redirect(browser, url)
 browser.get(url)
 
-for _ in range(5):
-    os.system('say "target ps5 in cart"')
+if (hear_alarm == "y"):
+    for _ in range(5):
+        os.system('say "target ps5 in cart"')
 
 

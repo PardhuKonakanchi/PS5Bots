@@ -25,7 +25,18 @@ else:
 
 
 browser = open_chrome_driver(url)
-refresh_period = ask_refresh_period()
+
+input("Press enter to continue once logged in...")
+
+hear_alarm = input("Do you want to hear alarm when in stock and in cart? (Y/N): ").strip().lower()
+
+want_refresh = input("Do you want the browser to refresh (check github page for explanation) Y/N: ").strip().lower()
+
+if want_refresh == "y":
+    refresh_period = ask_refresh_period()
+else:
+    refresh_period = 1
+
 found_stock = False
 
 print("Checking for stock...")
@@ -38,7 +49,8 @@ while not found_stock:
         add_to_cart = browser.find_element_by_css_selector("button[class*='add-to-cart-button']")
     except:
         refresh_count += 1
-        browser.refresh()
+        if want_refresh == "y":
+            browser.refresh()
     if add_to_cart.is_enabled():
         print("Found it!")
         add_to_cart.click()
@@ -46,15 +58,17 @@ while not found_stock:
     else:
         time.sleep(refresh_period)
         refresh_count += 1
-        browser.refresh()
+        if want_refresh == "y":
+            browser.refresh()
 
 
 print("BEST BUY IN STOCK!!")
 
 found_stock_redirect(browser, url)
 
-for _ in range(5):
-    os.system('say "best buy in stock"')
+if hear_alarm == "y":
+    for _ in range(5):
+        os.system('say "best buy in stock"')
 
 add_to_cart_ready = False
 
@@ -73,5 +87,6 @@ print("BEST BUY IN CART!!")
 found_stock_redirect('https://www.bestbuy.com/cart')
 browser.get(url)
 
-for _ in range(5):
-    os.system('say "best buy in cart"')
+if hear_alarm == "y":
+    for _ in range(5):
+        os.system('say "best buy in cart"')
