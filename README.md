@@ -13,7 +13,7 @@ Note that this solution uses an open WebBrowser which is slightly slower than a 
 * run either `python3 best_buy_ps5_bot.py` or `python best_buy_ps5_bot.py` (or whatever file you want to run)
 * If pip or python doesn't work, you may need to install python here: https://www.python.org/downloads/. If you already have python, uninstall and redownload **NOTE** : Make sure as you're downloading to check the box that says "Add Python X.X to PATH"
 
-You will be prompted for either disc or digital (and for best buy the 3080 as well)
+You will be prompted for either disc or digital (and for best buy the 3080 as well). You will also need to login each time you run the script as each instance is like an incognito tab
 
 ### Target:
 
